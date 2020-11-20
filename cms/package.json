@@ -1,5 +1,5 @@
 {
-  "name": "flatcms",
+  "name": "cmss",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -26,7 +26,7 @@
     "name": "A Strapi developer"
   },
   "strapi": {
-    "uuid": "96859aa2-8985-46d8-836a-5d29f722ab3f"
+    "uuid": "51c26c6f-6550-4e65-b666-821682de9c21"
   },
   "engines": {
     "node": ">=10.16.0 <=14.x.x",
