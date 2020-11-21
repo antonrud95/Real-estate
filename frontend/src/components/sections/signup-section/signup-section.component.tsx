@@ -10,7 +10,7 @@ const SignupSection = ({
   error,
 }) => {
   return (
-    <div className={styles.loginSection}>
+    <div className={styles.signupSection}>
       <form onSubmit={onSubmit} className={styles.formStyles}>
         <input type="email" value={email} onChange={onChangeEmail} />
         <input type="password" value={password} onChange={onChangePassword} />

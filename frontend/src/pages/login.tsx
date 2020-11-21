@@ -25,7 +25,7 @@ const LoginPage = () => {
     }
   }, [user])
 
-  const handleSubmit = async (event) => {
+  const handleLoginSubmit = async (event) => {
     event.preventDefault()
 
     try {
@@ -50,6 +50,36 @@ const LoginPage = () => {
       setUser(data)
     } catch (err) {
       setError('Something went wrong' + err)
+    }
+  }
+
+  const handleSignupSubmit = async (event) => {
+    event.preventDefault()
+
+    try {
+      const response = await fetch(
+        'http://localhost:1337/auth/local/register',
+        {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json',
+          },
+          body: JSON.stringify({
+            username: email,
+            email,
+            password,
+          }),
+        }
+      )
+      const data = await response.json()
+      if (data.message) {
+        setError(data.message[0].messages[0].message)
+        return
+      }
+      console.log('data', data)
+      setUser(data)
+    } catch (err) {
+      setError('Something went wrong')
     }
   }
 
@@ -79,7 +109,7 @@ const LoginPage = () => {
       <HeaderForm onclickLogin={loginNavigate} onclickSignup={signupNavigate} />
       {login && (
         <LoginSection
-          onSubmit={handleSubmit}
+          onSubmit={handleLoginSubmit}
           onChangeEmail={emailHandler}
           onChangePassword={passwordHandler}
           error={error}
@@ -87,8 +117,16 @@ const LoginPage = () => {
           email={email}
         />
       )}
-
-      {/* <SignupSection /> */}
+      {signup && (
+        <SignupSection
+          onSubmit={handleSignupSubmit}
+          onChangeEmail={emailHandler}
+          onChangePassword={passwordHandler}
+          error={error}
+          password={password}
+          email={email}
+        />
+      )}
     </Layout>
   )
 }
