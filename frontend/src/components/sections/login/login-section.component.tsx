@@ -1,10 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import styles from './login-section.module.scss'
 
-const LoginSection = () => {
+import { UserContext } from '~/contexts/user-context.context'
+
+const LoginSection = ({ history }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+
+  const { user, setUser } = useContext(UserContext)
+  // console.log('user', user)
+
+  useEffect(() => {
+    if (user) {
+      history.push('/')
+    }
+  }, [user])
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -28,6 +39,7 @@ const LoginSection = () => {
         setError(data.message[0].messages[0].message)
         return
       }
+      setUser(data)
     } catch (err) {
       setError('Something went wrong' + err)
     }
