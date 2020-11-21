@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Container, Navbar, Nav } from 'react-bootstrap'
 import { Link } from 'gatsby'
 import classnames from 'classnames'
@@ -9,6 +9,8 @@ import Button from '~/components/ui/general/button/button.component'
 
 import DarkMenuOpenIcon from '~/assets/icons/menu-open-icon-dark.svg'
 
+import { UserContext } from '~/contexts/user-context.context'
+
 import styles from './navbar.module.scss'
 
 const SNavbar = () => {
@@ -17,6 +19,8 @@ const SNavbar = () => {
   const openClickHandler = () => {
     toggleMenu(true)
   }
+
+  const { user } = useContext(UserContext)
 
   return (
     <Navbar
@@ -32,14 +36,13 @@ const SNavbar = () => {
 
         <Nav className={classnames(styles.nav, 'mr-4', 'ml-auto')}>
           <Link to="/" className={styles.navLink}>
-            Nav Item #1
+            Home
           </Link>
-          <Link to="/" className={styles.navLink}>
-            Nav Item #2
-          </Link>
-          <Link to="/" className={styles.navLink}>
-            Nav Item #3
-          </Link>
+          {!user && (
+            <Link to="/login" className={styles.navLink}>
+              Login
+            </Link>
+          )}
         </Nav>
         <Nav className={styles.nav}>
           <Button variant={'primary'}>Button</Button>

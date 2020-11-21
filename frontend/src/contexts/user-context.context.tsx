@@ -1,6 +1,6 @@
 import React, { useState, createContext } from 'react'
 
-export const UserContext = createContext(undefined)
+export const UserContext = createContext(null)
 
 export default ({ children }) => {
   const [user, setUser] = useState(null)
