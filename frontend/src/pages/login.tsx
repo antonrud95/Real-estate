@@ -4,6 +4,8 @@ import { navigate } from 'gatsby'
 import Layout from '~/components/layout'
 import SEO from '~/components/seo.component'
 import LoginSection from '~/components/sections/login/login-section.component'
+import SignupSection from '~/components/sections/signup-section/signup-section.component'
+import HeaderForm from '~/components/ui/general/authentication/header-form.component'
 
 import { UserContext } from '~/contexts/user-context.context'
 
@@ -12,8 +14,10 @@ const LoginPage = () => {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
 
+  const [login, setLogin] = useState(true)
+  const [signup, setSignup] = useState(false)
+
   const { user, setUser } = useContext(UserContext)
-  // console.log('user', user)
 
   useEffect(() => {
     if (user) {
@@ -59,17 +63,32 @@ const LoginPage = () => {
     setPassword(event.target.value)
   }
 
+  const loginNavigate = () => {
+    setLogin(true)
+    setSignup(false)
+  }
+
+  const signupNavigate = () => {
+    setLogin(false)
+    setSignup(true)
+  }
+
   return (
     <Layout>
       <SEO title="Unikorns Starter Kit" />
-      <LoginSection
-        onSubmit={handleSubmit}
-        onChangeEmail={emailHandler}
-        onChangePassword={passwordHandler}
-        error={error}
-        password={password}
-        email={email}
-      />
+      <HeaderForm onclickLogin={loginNavigate} onclickSignup={signupNavigate} />
+      {login && (
+        <LoginSection
+          onSubmit={handleSubmit}
+          onChangeEmail={emailHandler}
+          onChangePassword={passwordHandler}
+          error={error}
+          password={password}
+          email={email}
+        />
+      )}
+
+      {/* <SignupSection /> */}
     </Layout>
   )
 }
