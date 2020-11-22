@@ -13,6 +13,7 @@ import { UserContext } from '~/contexts/user-context.context'
 const LoginPage = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
   const [error, setError] = useState('')
 
   const [login, setLogin] = useState(true)
@@ -25,6 +26,10 @@ const LoginPage = () => {
       navigate('/hotels')
     }
   }, [user])
+
+  if (password !== confirmPassword) {
+    console.log('passwords doesnt match')
+  }
 
   const handleLoginSubmit = async (event) => {
     event.preventDefault()
@@ -56,31 +61,34 @@ const LoginPage = () => {
 
   const handleSignupSubmit = async (event) => {
     event.preventDefault()
-
-    try {
-      const response = await fetch(
-        'http://localhost:1337/auth/local/register',
-        {
-          method: 'POST',
-          headers: {
-            'Content-type': 'application/json',
-          },
-          body: JSON.stringify({
-            username: email,
-            email,
-            password,
-          }),
+    if (password !== confirmPassword) {
+      return
+    } else {
+      try {
+        const response = await fetch(
+          'http://localhost:1337/auth/local/register',
+          {
+            method: 'POST',
+            headers: {
+              'Content-type': 'application/json',
+            },
+            body: JSON.stringify({
+              username: email,
+              email,
+              password,
+            }),
+          }
+        )
+        const data = await response.json()
+        if (data.message) {
+          setError(data.message[0].messages[0].message)
+          return
         }
-      )
-      const data = await response.json()
-      if (data.message) {
-        setError(data.message[0].messages[0].message)
-        return
+        console.log('data', data)
+        setUser(data)
+      } catch (err) {
+        setError('Something went wrong')
       }
-      console.log('data', data)
-      setUser(data)
-    } catch (err) {
-      setError('Something went wrong')
     }
   }
 
@@ -92,6 +100,10 @@ const LoginPage = () => {
   const passwordHandler = (event) => {
     setError('')
     setPassword(event.target.value)
+  }
+  const confirmPasswordHandler = (event) => {
+    setError('')
+    setConfirmPassword(event.target.value)
   }
 
   const loginNavigate = () => {
@@ -138,8 +150,10 @@ const LoginPage = () => {
                 onSubmit={handleSignupSubmit}
                 onChangeEmail={emailHandler}
                 onChangePassword={passwordHandler}
+                onChangeConfirmPassword={confirmPasswordHandler}
                 error={error}
                 password={password}
+                confirmPassword={confirmPassword}
                 email={email}
                 onclick={handleSignupSubmit}
               />

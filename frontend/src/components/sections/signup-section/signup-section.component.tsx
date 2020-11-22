@@ -8,8 +8,10 @@ const SignupSection = ({
   onSubmit,
   onChangeEmail,
   onChangePassword,
+  onChangeConfirmPassword,
   email,
   password,
+  confirmPassword,
   error,
   onclick,
 }) => {
@@ -35,6 +37,14 @@ const SignupSection = ({
           onChange={onChangePassword}
           className={styles.inputStyles}
         />
+        <input
+          type="password"
+          placeholder="Confirm password"
+          value={confirmPassword}
+          onChange={onChangeConfirmPassword}
+          className={styles.inputStyles}
+        />
+        {password !== confirmPassword && <p>The passwords doesn`t match</p>}
         <label className={styles.checkboxContainer}>
           <input
             type="checkbox"
