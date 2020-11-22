@@ -1,11 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react'
-import { navigate } from 'gatsby'
+import { Container, Row, Col } from 'react-bootstrap'
+import { navigate, Link } from 'gatsby'
 
-import Layout from '~/components/layout'
-import SEO from '~/components/seo.component'
 import LoginSection from '~/components/sections/login/login-section.component'
 import SignupSection from '~/components/sections/signup-section/signup-section.component'
 import HeaderForm from '~/components/ui/general/authentication/header-form.component'
+
+import Logo from '~/assets/icons/logo.svg'
 
 import { UserContext } from '~/contexts/user-context.context'
 
@@ -104,30 +105,42 @@ const LoginPage = () => {
   }
 
   return (
-    <Layout>
-      <SEO title="Unikorns Starter Kit" />
-      <HeaderForm onclickLogin={loginNavigate} onclickSignup={signupNavigate} />
-      {login && (
-        <LoginSection
-          onSubmit={handleLoginSubmit}
-          onChangeEmail={emailHandler}
-          onChangePassword={passwordHandler}
-          error={error}
-          password={password}
-          email={email}
-        />
-      )}
-      {signup && (
-        <SignupSection
-          onSubmit={handleSignupSubmit}
-          onChangeEmail={emailHandler}
-          onChangePassword={passwordHandler}
-          error={error}
-          password={password}
-          email={email}
-        />
-      )}
-    </Layout>
+    <>
+      <Container>
+        <Row>
+          <Col md="6">
+            <Link to="/">
+              <Logo />
+            </Link>
+            <HeaderForm
+              onclickLogin={loginNavigate}
+              onclickSignup={signupNavigate}
+            />
+            {login && (
+              <LoginSection
+                onSubmit={handleLoginSubmit}
+                onChangeEmail={emailHandler}
+                onChangePassword={passwordHandler}
+                error={error}
+                password={password}
+                email={email}
+              />
+            )}
+            {signup && (
+              <SignupSection
+                onSubmit={handleSignupSubmit}
+                onChangeEmail={emailHandler}
+                onChangePassword={passwordHandler}
+                error={error}
+                password={password}
+                email={email}
+              />
+            )}
+          </Col>
+          <Col md="6" />
+        </Row>
+      </Container>
+    </>
   )
 }
 export default LoginPage

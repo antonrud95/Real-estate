@@ -39,16 +39,13 @@
 .secondary {
   color: $primary;
   background-color: transparent;
-  border: 2px solid $primary;
   &:hover,
   &:focus {
     color: $primary;
     background-color: transparent;
-    border: 2px solid $primary;
   }
   &:active {
     color: $primary !important;
     background-color: transparent !important;
-    border: 2px solid $primary !important;
   }
 }

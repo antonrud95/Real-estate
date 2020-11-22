@@ -1,10 +1,29 @@
+@import '~/styles/variables';
+
 .login-section {
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .form-styles {
     display: flex;
     flex-direction: column;
+    min-width: 349px;
+    .login-btn {
+        border-radius: 4px !important;
+    }
+    .input-styles {
+        font-family: 'Avenir Next';
+        font-size: 14px;
+        line-height: 19px;
+        color: $primary;
+        padding-left: 16px;
+        margin-bottom: 24px;
+        border-radius: 4px;
+        border: 1px solid rgba(38, 48, 86, 0.3) !important;
+        outline: none;
+        min-height: 44px;
+        &::placeholder {
+            color: #BEC1CC;
+        }
+    }
 }
