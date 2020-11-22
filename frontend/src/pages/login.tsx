@@ -8,8 +8,6 @@ import HeaderForm from '~/components/ui/general/authentication/header-form.compo
 
 import Logo from '~/assets/icons/logo.svg'
 
-import styles from '~/styles/index.scss'
-
 import { UserContext } from '~/contexts/user-context.context'
 
 const LoginPage = () => {
@@ -143,6 +141,7 @@ const LoginPage = () => {
                 error={error}
                 password={password}
                 email={email}
+                onclick={handleSignupSubmit}
               />
             )}
           </Col>

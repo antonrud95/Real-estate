@@ -11,6 +11,7 @@ const SignupSection = ({
   email,
   password,
   error,
+  onclick,
 }) => {
   const [disabledBtn, setDisabledBtn] = useState(true)
   const toggleHandler = () => {
@@ -49,6 +50,7 @@ const SignupSection = ({
           variant="primary"
           disabled={disabledBtn}
           className={styles.signupBtn}
+          onClick={onclick}
         >
           Sign up
         </SButton>
