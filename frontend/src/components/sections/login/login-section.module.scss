@@ -12,6 +12,7 @@
         border-radius: 4px !important;
     }
     .input-styles {
+        position: relative !important;
         font-family: 'Avenir Next';
         font-size: 14px;
         line-height: 19px;
@@ -22,8 +23,19 @@
         border: 1px solid rgba(38, 48, 86, 0.3) !important;
         outline: none;
         min-height: 44px;
+        width: 100%;
         &::placeholder {
             color: #BEC1CC;
         }
+    }
+    .input-styles-relative {
+        position: relative !important;
+    }
+    .eye {
+        position: absolute !important;
+        cursor: pointer;
+        right: 12px;
+        top: 50%;
+        transform: translateY(calc(-50% - 12px));
     }
 }

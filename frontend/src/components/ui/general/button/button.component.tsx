@@ -12,6 +12,7 @@ interface Props {
   children: ReactNode
   additionalClasses?: string[]
   onClick?: (e: React.MouseEvent) => void
+  disabled?: any
 }
 
 const SButton: FC<Props> = ({
@@ -21,6 +22,7 @@ const SButton: FC<Props> = ({
   additionalClasses,
   className,
   onClick,
+  disabled,
 }) => {
   let variantStyles
   switch (variant) {
@@ -37,6 +39,7 @@ const SButton: FC<Props> = ({
     <Button
       type={type}
       onClick={onClick}
+      disabled={disabled}
       className={classnames(
         styles.button,
         variantStyles,

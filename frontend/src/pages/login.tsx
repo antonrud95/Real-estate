@@ -8,6 +8,8 @@ import HeaderForm from '~/components/ui/general/authentication/header-form.compo
 
 import Logo from '~/assets/icons/logo.svg'
 
+import styles from '~/styles/index.scss'
+
 import { UserContext } from '~/contexts/user-context.context'
 
 const LoginPage = () => {
@@ -97,11 +99,17 @@ const LoginPage = () => {
   const loginNavigate = () => {
     setLogin(true)
     setSignup(false)
+    setEmail('')
+    setPassword('')
+    setError('')
   }
 
   const signupNavigate = () => {
     setLogin(false)
     setSignup(true)
+    setEmail('')
+    setPassword('')
+    setError('')
   }
 
   return (
@@ -124,6 +132,7 @@ const LoginPage = () => {
                 error={error}
                 password={password}
                 email={email}
+                onclick={handleLoginSubmit}
               />
             )}
             {signup && (
