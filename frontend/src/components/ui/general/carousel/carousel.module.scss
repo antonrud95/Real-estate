@@ -1,0 +1,22 @@
+.images-container {
+    position: relative !important;
+}
+
+.marker-container {
+    display: flex !important;
+    align-items: center;
+    position: absolute !important;
+    left: 50px;
+    bottom: 42px;
+    .marker-text {
+        padding-left: 10px;
+        margin-bottom: 0;
+        font-family: 'Avenir Next';
+        font-size: 14px;
+        line-height: 19px;
+        color: #fff;
+    }
+    .marker {
+        color: #fff;
+    }
+}
