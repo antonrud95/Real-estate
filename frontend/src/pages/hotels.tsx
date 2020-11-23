@@ -14,7 +14,12 @@ const HotelsPage = ({ data }) => {
       <SEO title="Unikorns Starter Kit" />
       {user && <HotelsSection hotels={data.allStrapiHotels.nodes} />}
       {!user && (
-        <div>You UNsuccesfuly redirected to hotels page. Congratulations!</div>
+        <>
+          <div>
+            You UNsuccesfuly redirected to hotels page. Congratulations!
+          </div>
+          <HotelsSection hotels={data.allStrapiHotels.nodes} />
+        </>
       )}
     </Layout>
   )

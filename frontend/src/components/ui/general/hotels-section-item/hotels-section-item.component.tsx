@@ -1,4 +1,5 @@
 import React from 'react'
+import { Row, Col } from 'react-bootstrap'
 
 import Slider from 'react-slick'
 import Img from 'gatsby-image'
@@ -20,18 +21,26 @@ const HotelsItem = ({ title, text, link, price, image }) => {
     slidesToScroll: 1,
   }
   return (
-    <div>
-      <div className={styles.carouselWrapper}>
+    <Row className={styles.hotelsItemWrapper}>
+      <Col md={5} className={styles.carouselWrapper}>
         <Slider {...settings}>
-          <Img fluid={image} />
-          <Img fluid={image} />
-          <Img fluid={image} />
-          <Img fluid={image} />
+          <div className={styles.imageWrapper}>
+            <Img fluid={image} className={styles.carouselImage} />
+          </div>
+          <div className={styles.imageWrapper}>
+            <Img fluid={image} className={styles.carouselImage} />
+          </div>
+          <div className={styles.imageWrapper}>
+            <Img fluid={image} className={styles.carouselImage} />
+          </div>
+          <div className={styles.imageWrapper}>
+            <Img fluid={image} className={styles.carouselImage} />
+          </div>
         </Slider>
-      </div>
-      <div className={styles.textWrapper}>
-        <h3>{title}</h3>
-        <p>{text}</p>
+      </Col>
+      <Col md={7} className={styles.textWrapper}>
+        <h3 className={styles.title}>{title}</h3>
+        <p className={styles.text}>{text}</p>
         <div className={styles.underInfo}>
           <p className={styles.underLink}>
             <FontAwesomeIcon icon={faMapMarkerAlt} className={styles.marker} />
@@ -39,8 +48,8 @@ const HotelsItem = ({ title, text, link, price, image }) => {
           </p>
           <p className={styles.price}>{price}</p>
         </div>
-      </div>
-    </div>
+      </Col>
+    </Row>
   )
 }
 
