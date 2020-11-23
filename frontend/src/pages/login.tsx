@@ -1,6 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import { navigate, Link } from 'gatsby'
+import styles from './login.module.scss'
 
 import LoginSection from '~/components/sections/login/login-section.component'
 import SignupSection from '~/components/sections/signup-section/signup-section.component'
@@ -122,10 +123,10 @@ const LoginPage = () => {
 
   return (
     <>
-      <Container fluid>
+      <Container fluid className={styles.mainContainer}>
         <Row>
-          <Col md="6">
-            <Link to="/">
+          <Col md="6" className={styles.loginCol}>
+            <Link to="/" className={styles.link}>
               <Logo />
             </Link>
             <HeaderForm
@@ -157,7 +158,7 @@ const LoginPage = () => {
               />
             )}
           </Col>
-          <Col md="6">
+          <Col md="6" className={styles.loginCol}>
             <SimpleSlider />
           </Col>
         </Row>

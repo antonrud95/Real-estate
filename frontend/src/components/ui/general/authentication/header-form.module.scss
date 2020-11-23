@@ -2,7 +2,8 @@
 
 .header-form-styles {
    display: flex;
-   margin-bottom: 40px;
+   max-width: 349px;
+   margin: 0 auto 40px auto;
    padding-top: 210px;
    .btn {
         padding: 0;
