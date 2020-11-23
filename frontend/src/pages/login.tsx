@@ -7,6 +7,7 @@ import SignupSection from '~/components/sections/signup-section/signup-section.c
 import HeaderForm from '~/components/ui/general/authentication/header-form.component'
 
 import Logo from '~/assets/icons/logo.svg'
+import SimpleSlider from '~/components/ui/general/carousel/carousel.component'
 
 import { UserContext } from '~/contexts/user-context.context'
 
@@ -26,10 +27,6 @@ const LoginPage = () => {
       navigate('/hotels')
     }
   }, [user])
-
-  if (password !== confirmPassword) {
-    console.log('passwords doesnt match')
-  }
 
   const handleLoginSubmit = async (event) => {
     event.preventDefault()
@@ -120,11 +117,12 @@ const LoginPage = () => {
     setEmail('')
     setPassword('')
     setError('')
+    setConfirmPassword('')
   }
 
   return (
     <>
-      <Container>
+      <Container fluid>
         <Row>
           <Col md="6">
             <Link to="/">
@@ -159,7 +157,9 @@ const LoginPage = () => {
               />
             )}
           </Col>
-          <Col md="6" />
+          <Col md="6">
+            <SimpleSlider />
+          </Col>
         </Row>
       </Container>
     </>
