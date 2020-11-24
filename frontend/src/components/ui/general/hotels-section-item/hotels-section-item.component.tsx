@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Row, Col } from 'react-bootstrap'
 
 import Slider from 'react-slick'
@@ -8,9 +8,13 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons'
+import { faMapMarkerAlt, faHeart } from '@fortawesome/free-solid-svg-icons'
 
 import styles from './hotels-item.module.scss'
+
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faHeart as farFaHeart } from '@fortawesome/free-regular-svg-icons'
+library.add(farFaHeart)
 
 const HotelsItem = ({ title, text, link, price, image }) => {
   const settings = {
@@ -20,6 +24,13 @@ const HotelsItem = ({ title, text, link, price, image }) => {
     slidesToShow: 1,
     slidesToScroll: 1,
   }
+
+  const [heart, setHeart] = useState(false)
+
+  const clickerHeart = () => {
+    setHeart(!heart)
+  }
+
   return (
     <Row className={styles.hotelsItemWrapper}>
       <Col md={5} className={styles.carouselWrapper}>
@@ -39,7 +50,18 @@ const HotelsItem = ({ title, text, link, price, image }) => {
         </Slider>
       </Col>
       <Col md={7} className={styles.textWrapper}>
-        <h3 className={styles.title}>{title}</h3>
+        <div className={styles.titleIcon}>
+          <h3 className={styles.title}>{title}</h3>
+          {!heart ? (
+            <FontAwesomeIcon icon={farFaHeart} onClick={clickerHeart} />
+          ) : (
+            <FontAwesomeIcon
+              icon={faHeart}
+              className={styles.heartRed}
+              onClick={clickerHeart}
+            />
+          )}
+        </div>
         <p className={styles.text}>{text}</p>
         <div className={styles.underInfo}>
           <p className={styles.underLink}>

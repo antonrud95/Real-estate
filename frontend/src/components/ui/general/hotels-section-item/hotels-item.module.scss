@@ -54,11 +54,10 @@
 }
 
 .title {
-    padding-top: 24px;
     font-family: 'Avenir Next Bold';
     font-size: 16px;
     line-height: 20px;
-    margin-bottom: 8px;
+    margin-bottom: 0 !important;
 }
 
 .text {
@@ -83,4 +82,16 @@
         border-radius: 6px;
         opacity: .3;
     }
+}
+
+.title-icon {
+    padding-top: 24px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    justify-content: space-between;
+}
+
+.heart-red {
+    color: red;
 }
