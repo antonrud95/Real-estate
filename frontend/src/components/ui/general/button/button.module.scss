@@ -1,14 +1,14 @@
 @import 'src/styles/variables';
 .button {
-  font-family: 'Arial', sans-serif;
-  font-size: 16px;
-  line-height: 24px;
+  font-family: 'Avenir Next Medium' !important;
+  font-size: 16px !important;
+  line-height: 22px !important;
   color: white;
   background-color: $primary;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 48px;
+  height: 40px !important;
   border: none;
   border-radius: 10px;
   transition: all 0.1s ease-in-out;

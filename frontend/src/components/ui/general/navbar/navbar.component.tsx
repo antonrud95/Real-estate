@@ -6,10 +6,11 @@ import classnames from 'classnames'
 import Logo from '~/components/ui/general/logo/logo.component'
 import MobileMenu from '~/components/ui/general/mobile-menu/mobile-menu.component'
 import Button from '~/components/ui/general/button/button.component'
+import DropdownNav from '~/components/ui/general/nav-dropdown/nav-dropdown.component'
+
+import MyAccount from '~/assets/icons/icon.svg'
 
 import DarkMenuOpenIcon from '~/assets/icons/menu-open-icon-dark.svg'
-
-import { UserContext } from '~/contexts/user-context.context'
 
 import styles from './navbar.module.scss'
 
@@ -20,34 +21,42 @@ const SNavbar = () => {
     toggleMenu(true)
   }
 
-  const { user } = useContext(UserContext)
-
   return (
     <Navbar
       fixed="top"
       className={classnames(styles.navbar, styles.navbar__onLight)}
     >
-      <Container>
+      <div className={styles.navContainer}>
         <Logo />
         <DarkMenuOpenIcon
           className={styles.openIcon}
           onClick={openClickHandler}
         />
 
-        <Nav className={classnames(styles.nav, 'mr-4', 'ml-auto')}>
+        <Nav className={classnames(styles.nav, 'mr-4')}>
           <Link to="/" className={styles.navLink}>
-            Home
+            For sale
           </Link>
-          {!user && (
-            <Link to="/login" className={styles.navLink}>
-              Login
-            </Link>
-          )}
+          <Link to="/" className={styles.navLink}>
+            To rent
+          </Link>
+          <DropdownNav />
+          <Link to="/" className={styles.navLink}>
+            Blog
+          </Link>
         </Nav>
-        <Nav className={styles.nav}>
-          <Button variant={'primary'}>Button</Button>
+        <Nav className={classnames(styles.nav, 'ml-auto')}>
+          <Link to="/login" className={styles.navLink}>
+            <div className={styles.accContainer}>
+              <MyAccount className={styles.accIcon} />
+              <p className={styles.accText}>My account</p>
+            </div>
+          </Link>
+          <Button variant={'primary'} className={styles.navBtn}>
+            Post your ad
+          </Button>
         </Nav>
-      </Container>
+      </div>
       <MobileMenu isShown={isMenuShown} toggle={toggleMenu} />
     </Navbar>
   )

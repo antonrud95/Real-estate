@@ -2,7 +2,8 @@
 @import 'src/styles/mixins';
 .navbar {
   background-color: transparent;
-  padding: 1.5rem 0;
+  padding: 0;
+  height: 104px;
   transition: all 0.1s ease-in-out;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
 }
@@ -10,13 +11,15 @@
   display: none;
   @include breakpoint('tablet') {
     display: flex;
+    align-items: center;
   }
 }
 .nav-link {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Avenir Next Medium';
   font-size: 16px;
+  line-height: 22px;
   color: $primary;
-  margin: 0 1.5rem;
+  margin: 0 20px;
   padding: 0.25rem 0;
   border-bottom: 2px solid transparent;
   transition: all 0.3s ease-in-out;
@@ -30,4 +33,36 @@
   @include breakpoint('tablet') {
     display: none;
   }
+}
+
+.acc-container {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.acc-text {
+  font-family: 'Avenir Next Medium';
+  font-size: 16px;
+  line-height: 22px;
+  color: $primary;
+  margin-bottom: 0;
+}
+
+.acc-icon {
+  margin-right: 9px;
+}
+
+
+.nav-btn {
+  max-height: 40px !important;
+  max-width: 140px !important;
+  border-radius: 6px;
+}
+
+.nav-container {
+  width: 100% !important;
+  display: flex;
+  align-items: center;
+  padding: 0 56px 0 48px;
 }
