@@ -1,0 +1,75 @@
+@import '~/styles/variables.scss';
+
+
+.arrow-down {
+    transform: rotate(180deg);
+    color: $primary !important;
+    font-size: 12px;
+    transition: .3s linear;
+}
+.arrow-up {
+    color: $primary !important;
+    font-size: 12px;
+    transition: .3s linear;
+}
+
+.dropdown-body,
+.drop-item {
+    cursor: pointer;
+}
+
+.drop-wrapper {
+    position: relative !important;
+    min-height: 104px;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    &:active,
+    &:hover {
+        background-color: #F3F4F8;
+    }
+}
+
+.dropdown-body {
+    font-family: 'Avenir Next Medium';
+    font-size: 14px;
+    line-height: 19px;
+    color: $primary;
+    cursor: pointer;
+    min-width: 157px !important;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px !important;
+}
+
+.drop-list {
+    font-family: 'Avenir Next Medium';
+    font-size: 14px;
+    line-height: 19px;
+    color: $primary;
+    position: absolute !important;
+    top: 104px;
+    left: 0;
+    background-color: #fff !important;
+    padding: 0 16px 0 16px !important;
+    z-index: 1000;
+    min-width: 157px;
+    &:before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: -10px;
+        transform: translateX(-50%);
+        display: inline-block;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid #fff;
+    }
+    .drop-item {
+        margin: 24px 0;
+    }
+}

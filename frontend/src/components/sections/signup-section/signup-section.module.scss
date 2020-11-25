@@ -1,0 +1,77 @@
+@import '~/styles/variables';
+
+.signup-section {
+    display: flex;
+    justify-content: center;
+}
+
+.form-styles {
+    display: flex;
+    flex-direction: column;
+    min-width: 349px;
+    .signup-btn {
+        border-radius: 4px !important;
+    }
+    .input-styles {
+        font-family: 'Avenir Next';
+        font-size: 14px;
+        line-height: 19px;
+        color: $primary;
+        padding-left: 16px;
+        margin-bottom: 24px;
+        border-radius: 4px;
+        border: 1px solid rgba(38, 48, 86, 0.3) !important;
+        outline: none;
+        min-height: 44px;
+        &::placeholder {
+            color: #BEC1CC;
+        }
+    }
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    .parent-checkbox {
+        position: absolute;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+    .checkbox-text {
+        margin-bottom: 0;
+        padding-left: 24px;
+        cursor: pointer;
+    }
+    .custom-check {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        height: 16px;
+        width: 16px;
+        background-color: #eee;
+        border-radius: 2px;
+        cursor: pointer;
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 5px;
+            top: 1px;
+            width: 7px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 3px 3px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+        }
+    }
+    .parent-checkbox:checked + .custom-check {
+        background-color: $primary;
+    }
+    .parent-checkbox:checked + .custom-check:after {
+        display: block;
+    }
+}

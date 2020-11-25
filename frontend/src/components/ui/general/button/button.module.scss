@@ -1,14 +1,14 @@
 @import 'src/styles/variables';
 .button {
-  font-family: 'Arial', sans-serif;
-  font-size: 16px;
-  line-height: 24px;
+  font-family: 'Avenir Next Medium' !important;
+  font-size: 16px !important;
+  line-height: 22px !important;
   color: white;
   background-color: $primary;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 48px;
+  height: 40px !important;
   border: none;
   border-radius: 10px;
   transition: all 0.1s ease-in-out;
@@ -25,6 +25,9 @@
   &:active {
     transform: scale(0.95) !important;
   }
+  &:disabled {
+    background-color: grey !important;
+  }
 }
 .primary {
   background-color: #353057;
@@ -39,16 +42,13 @@
 .secondary {
   color: $primary;
   background-color: transparent;
-  border: 2px solid $primary;
   &:hover,
   &:focus {
     color: $primary;
     background-color: transparent;
-    border: 2px solid $primary;
   }
   &:active {
     color: $primary !important;
     background-color: transparent !important;
-    border: 2px solid $primary !important;
   }
 }

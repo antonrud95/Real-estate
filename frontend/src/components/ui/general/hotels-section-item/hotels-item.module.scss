@@ -1,0 +1,97 @@
+.carousel-wrapper {
+    padding: 0 !important;
+    max-width: 254px;
+}
+.text-wrapper {
+    padding: 0 0 0 24px !important;
+}
+
+.carousel-image {
+    width: 254px !important;
+    border-radius: 6px;
+}
+
+.hotels-item-wrapper {
+    max-height: 172px;
+    margin-bottom: 16px;
+    margin-left: 48px;
+    box-shadow: 0px 2px 8px rgba(38, 48, 86, 0.1);
+    border-radius: 6px;
+}
+
+.under-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.under-link {
+    color: #263056;
+    font-family: 'Avenir Next';
+    font-size: 14px;
+    line-height: 19px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+}
+
+.price {
+    margin-bottom: 0;
+    font-family: 'Avenir Next Bold';
+    font-size: 16px;
+    line-height: 20px;
+    color: #263056;
+    min-width: 79px;
+    text-align: center;
+    padding: 4px 0;
+    background-color: #F6D29C;
+    border-radius: 4px;
+}
+
+.marker {
+    padding-right: 4px;
+    font-size: 20px;
+}
+
+.title {
+    font-family: 'Avenir Next Bold';
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 0 !important;
+}
+
+.text {
+    font-family: 'Avenir Next';
+    font-size: 14px;
+    line-height: 19px;
+    color: #767C89;
+    margin-bottom: 32px;
+}
+
+.image-wrapper {
+    position: relative;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 50;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, #000000 100%);
+        border-radius: 6px;
+        opacity: .3;
+    }
+}
+
+.title-icon {
+    padding-top: 24px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    justify-content: space-between;
+}
+
+.heart-red {
+    color: red;
+}

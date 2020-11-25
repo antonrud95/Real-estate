@@ -1,0 +1,61 @@
+@import '~/styles/variables.scss';
+
+.checkbox-wrapper {
+    width: 100% !important;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    padding-left: 48px;
+}
+
+.checkbox-container {
+    display: flex;
+}
+
+.checkbox-title {
+    font-family: 'Avenir Next Medium';
+    font-size: 22px;
+    line-height: 30px;
+    color: $primary;
+    span {
+        color: #767C89;
+    }
+}
+
+.map-text {
+    font-family: 'Avenir Next Medium', sans-serif;
+    font-size: 16px;
+    line-height: 22px;
+    color: #263056;
+    margin-right: 8px;
+}
+
+.checkbox {
+    position: relative;
+    width: 40px;
+    height: 24px;
+    appearance: none;
+    background-color: $primary;
+    border-radius: 20px;
+    transition: .5s;
+    outline: none;
+}
+.checkbox:checked {
+    background-color: grey;
+}
+.checkbox:before {
+    position: absolute;
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: #fff;
+    border-radius: 50%;
+    top: 2px;
+    right: 2px;
+    transition: .5s;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15), 0px 1px 1px rgba(0, 0, 0, 0.16), 0px 3px 1px rgba(0, 0, 0, 0.1);
+}
+.checkbox:checked:before {
+    transition: .5s;
+    right: 18px;
+}
