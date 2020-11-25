@@ -1,0 +1,72 @@
+@import '~/styles/variables.scss';
+
+.drops-container {
+    display: flex;
+}
+
+.arrow-down {
+    transform: rotate(180deg);
+    color: #BFBFBF !important;
+    font-size: 12px;
+    transition: .3s linear;
+}
+.arrow-up {
+    color: #BFBFBF !important;
+    font-size: 12px;
+    transition: .3s linear;
+}
+
+.dropdown-body,
+.drop-item {
+    cursor: pointer;
+}
+
+.drop-wrapper,
+.second-drop-wrapper,
+.third-drop-wrapper {
+    position: relative !important;
+}
+
+.drop-wrapper {
+    margin-left: 48px;
+}
+
+.drop-wrapper,
+.second-drop-wrapper {
+    margin-right: 16px;
+}
+
+.dropdown-body {
+    font-family: 'Avenir Next Medium';
+    font-size: 14px;
+    line-height: 19px;
+    color: $primary;
+    cursor: pointer;
+    min-width: 157px !important;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px !important;
+    border: 1px solid rgba(38, 48, 86, 0.3);    
+    border-radius: 4px;
+}
+
+.drop-list {
+    font-family: 'Avenir Next Medium';
+    font-size: 14px;
+    line-height: 19px;
+    color: $primary;
+    position: absolute !important;
+    top: 46px;
+    left: 0;
+    background-color: #fff !important;
+    padding: 0 16px 0 16px !important;
+    z-index: 1000;
+    border: 1px solid rgba(38, 48, 86, 0.3);  
+    border-radius: 4px;
+    min-width: 157px;
+    .drop-item {
+        margin: 10px 0;
+    }
+}
