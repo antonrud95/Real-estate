@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import OptionsIcon from '~/assets/icons/options.svg'
+
 import styles from './dropdown.module.scss'
 
 const DropdownItem = () => {
@@ -105,6 +107,10 @@ const DropdownItem = () => {
             </li>
           </ul>
         )}
+      </div>
+      <div className={styles.more}>
+        <OptionsIcon />
+        <p className={styles.optionsText}>More</p>
       </div>
     </div>
   )
