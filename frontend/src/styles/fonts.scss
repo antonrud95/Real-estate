@@ -20,6 +20,17 @@
   font-weight: 500;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Avenir Next Demi';
+  src: url('../assets/fonts/AvenirNextCyr-Demi.eot');
+  src: url('../assets/fonts/AvenirNextCyr-Demi.eot?#iefix')
+      format('embedded-opentype'),
+    url('../assets/fonts/AvenirNextCyr-Demi.woff2') format('woff2'),
+    url('../assets/fonts/AvenirNextCyr-Demi.woff') format('woff'),
+    url('../assets/fonts/AvenirNextCyr-Demi.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
 
 @font-face {
   font-family: 'Avenir Next Bold';

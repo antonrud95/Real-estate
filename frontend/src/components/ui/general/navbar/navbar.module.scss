@@ -1,7 +1,7 @@
 @import 'src/styles/variables';
 @import 'src/styles/mixins';
 .navbar {
-  background-color: transparent;
+  background-color: #fff !important;
   padding: 0;
   height: 104px;
   transition: all 0.1s ease-in-out;
