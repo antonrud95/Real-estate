@@ -70,7 +70,7 @@ module.exports = {
         short_name: 'unikorns',
         start_url: '/',
         display: 'minimal-ui',
-        icon: 'src/assets/icons/global/favicon.png', // This path is relative to the root of the site.
+        icon: 'src/assets/icons/global/flatstep-icon.png', // This path is relative to the root of the site.
       },
     },
     {

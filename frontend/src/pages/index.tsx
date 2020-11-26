@@ -6,7 +6,7 @@ import HeroSection from '~/components/sections/hero-section/hero-section.compone
 
 const IndexPage = () => (
   <Layout>
-    <SEO title="Unikorns Starter Kit" />
+    <SEO title="Real estate" />
     <HeroSection />
   </Layout>
 )
