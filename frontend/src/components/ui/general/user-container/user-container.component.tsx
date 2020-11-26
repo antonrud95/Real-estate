@@ -15,6 +15,10 @@ const UserBox = () => {
     setShow(!show)
   }
 
+  const reloadPage = () => {
+    window.location.reload()
+  }
+
   const data = useStaticQuery(graphql`
     query {
       userImage: file(relativePath: { eq: "images/user.png" }) {
@@ -43,7 +47,10 @@ const UserBox = () => {
           <li className={styles.listItem}>Ads</li>
           <li className={styles.listItem}>Messages</li>
           <li className={styles.listItem}>Settings</li>
-          <li className={[styles.listItem, styles.listItemRed].join(' ')}>
+          <li
+            className={[styles.listItem, styles.listItemRed].join(' ')}
+            onClick={reloadPage}
+          >
             Log out
           </li>
         </ul>
