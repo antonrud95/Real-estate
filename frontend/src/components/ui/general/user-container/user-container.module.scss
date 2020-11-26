@@ -1,0 +1,56 @@
+@import '~/styles/variables.scss';
+
+.user-wrapper {
+    display: flex;
+    align-items: center;
+    margin-right: 45px;
+    cursor: pointer;
+    position: relative;
+}
+
+.dropdown-wrapper {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    background-color: #fff !important;
+    width: 100%;
+    padding: 16px 0 16px 40px;
+    font-family: 'Avenir Next Medium';
+    font-size: 16px;
+    line-height: 22px;
+    color: $primary;
+    border: 1px solid rgba(242, 241, 239, 0.3);
+    transition: 1s ease-in;
+    .list-item {
+        margin-bottom: 16px;
+        &:first-child {
+            margin-top: 16px;
+        }
+    }
+}
+
+.list-item-red {
+    color: #FF6854;
+}
+
+.text-styles {
+    margin-bottom: 0;
+    margin-right: 10px;
+    font-family: 'Avenir Next Medium';
+    font-size: 16px;
+    line-height: 22px;
+    color: $primary;
+}
+
+.image-styles {
+    width: 38px;
+    margin-right: 16px;
+}
+
+.arrow-up {
+    transition: .3s ease-in;
+    transform: rotate(180deg);
+}
+.arrow-down {
+    transition: .3s ease-in;
+}

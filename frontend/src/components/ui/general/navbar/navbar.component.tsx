@@ -11,10 +11,15 @@ import DropdownNav from '~/components/ui/general/nav-dropdown/nav-dropdown.compo
 import MyAccount from '~/assets/icons/icon.svg'
 
 import DarkMenuOpenIcon from '~/assets/icons/menu-open-icon-dark.svg'
+import UserBox from '~/components/ui/general/user-container/user-container.component'
+
+import { UserContext } from '~/contexts/user-context.context'
 
 import styles from './navbar.module.scss'
 
 const SNavbar = () => {
+  const { user } = useContext(UserContext)
+
   const [isMenuShown, toggleMenu] = useState(false)
 
   const openClickHandler = () => {
@@ -46,12 +51,16 @@ const SNavbar = () => {
           </Link>
         </Nav>
         <Nav className={classnames(styles.nav, 'ml-auto')}>
-          <Link to="/login" className={styles.navLink}>
-            <div className={styles.accContainer}>
-              <MyAccount className={styles.accIcon} />
-              <p className={styles.accText}>My account</p>
-            </div>
-          </Link>
+          {user ? (
+            <UserBox />
+          ) : (
+            <Link to="/login" className={styles.navLink}>
+              <div className={styles.accContainer}>
+                <MyAccount className={styles.accIcon} />
+                <p className={styles.accText}>My account</p>
+              </div>
+            </Link>
+          )}
           <Button variant={'primary'} className={styles.navBtn}>
             Post your ad
           </Button>
