@@ -4,6 +4,7 @@ import { graphql } from 'gatsby'
 import Layout from '~/components/layout'
 import SEO from '~/components/seo.component'
 import HotelsSection from '~/components/sections/hotels-section/hotels-section.component'
+import NoUser from '~/components/ui/general/no-user/no-user.component'
 
 import { UserContext } from '~/contexts/user-context.context'
 
@@ -11,16 +12,9 @@ const HotelsPage = ({ data }) => {
   const { user } = useContext(UserContext)
   return (
     <Layout>
-      <SEO title="Unikorns Starter Kit" />
+      <SEO title="Real estate" />
       {user && <HotelsSection hotels={data.allStrapiHotels.nodes} />}
-      {!user && (
-        <>
-          <div>
-            You UNsuccesfuly redirected to hotels page. Congratulations!
-          </div>
-          <HotelsSection hotels={data.allStrapiHotels.nodes} />
-        </>
-      )}
+      {!user && <NoUser />}
     </Layout>
   )
 }

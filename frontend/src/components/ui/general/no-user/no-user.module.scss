@@ -1,0 +1,18 @@
+@import 'src/styles/variables';
+
+.nouser-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: 'Avenir Next Medium';
+    font-size: 16px;
+    line-height: 22px;
+    color: $primary;
+}
+
+.nouser-btn {
+    max-height: 40px !important;
+    border-radius: 6px;
+}
